@@ -1,0 +1,53 @@
+{
+  "estoque": [
+    {
+      "id": 1,
+      "modelo": "Blusa manga longa",
+      "marca": "Trifil",
+      "preco": 78,
+      "imagem": ["https://i.imgur.com/Cdmh58Z.jpeg", "https://i.imgur.com/rznyZgx.jpg"],
+      "quantidade": 10,
+      "nota": 4.5
+    },
+    {
+      "id": 2,
+      "modelo": "Blusa manga curta",
+      "marca": "Hering",
+      "preco": 59,
+      "imagem": ["https://i.imgur.com/FCKZuzr.jpg", "https://i.imgur.com/PeFsyZT.jpg", "https://i.imgur.com/yWTcqkr.jpg"],
+      "quantidade": 8
+    },
+    {
+      "id": 3,
+      "modelo": "Blusa tecido",
+      "marca": "Pitanga",
+      "preco": 89,
+      "imagem": ["https://http2.mlstatic.com/D_NQ_NP_891788-MLB31201368237_062019-V.jpg", "https://i.imgur.com/vnbfgXb.jpg", "https://i.imgur.com/6fsf8Fv.jpg"],
+      "quantidade": 5
+    },
+    {
+      "id": 4,
+      "modelo": "Blusa estampada",
+      "marca": "Trifil",
+      "preco": 49,
+      "imagem": ["https://i.pinimg.com/736x/7f/59/c2/7f59c299e61abad3199ad42958ea564f.jpg", "https://i.pinimg.com/474x/ed/e9/fb/ede9fb1918a39dfa67ea19c94994ae45.jpg"],
+      "quantidade": 12
+    },
+    {
+      "id": 5,
+      "modelo": "Jaqueta",
+      "marca": "Poder",
+      "preco": 49,
+      "imagem": ["https://img102.urbanic.com/goods-pic/0b3db2df54a14ec58188a46d2d574afeUR_w1176_q95", "https://img102.urbanic.com/goods-pic/96b8fd33758f47a5a0911650873a07b7UR_w1176_q95", "https://img102.urbanic.com/goods-pic/e4fe501b006f4c819eb2816fa623c8c7UR_w1176_q95"],
+      "quantidade": 15
+    },
+    {
+      "id": 6,
+      "modelo": "Blusa Mulher Maravilha",
+      "marca": "Poderosa",
+      "preco": 69,
+      "imagem": ["https://cea.vtexassets.com/arquivos/ids/50997526/B…melha-9573350-Vermelho_1.jpg?v=637713898622270000"],
+      "quantidade": 9
+    }
+  ]
+}
