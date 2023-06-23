@@ -68,7 +68,7 @@ function Carrinho() {
   const getTotal = () => {
     let sum = 0;
 
-    console.log('get total');
+    //console.log('get total');
 
     for (let item of cart ) {
       sum += item.preco * item.quantidade;
