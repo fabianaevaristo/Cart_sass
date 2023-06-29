@@ -6,11 +6,11 @@ import TableRow from "../TableRow";
 import PageHeader from "../layout/PageHeader";
 import PageTitle from "../layout/PageTitle";
 
-import { api } from '../provider';
+import api from '../services/api';
 
 
 function Carrinho() {
-  const [cart, setCart] = useState([{id: 1, quantidade: 1}]);
+  const [cart, setCart] = useState([{id: 1, quantidade: 1, preco: 78}]);
   const [estoque, setEstoque] = useState([]);
 
   const fetchData = async () => {
@@ -67,8 +67,7 @@ function Carrinho() {
   
   const getTotal = () => {
     let sum = 0;
-
-    //console.log('get total');
+    console.log(cart)
 
     for (let item of cart ) {
       sum += item.preco * item.quantidade;
