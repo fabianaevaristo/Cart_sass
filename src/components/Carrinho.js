@@ -10,7 +10,7 @@ import api from '../services/api';
 
 
 function Carrinho() {
-  const [cart, setCart] = useState([{id: 1, quantidade: 1, preco: 78}]);
+  const [cart, setCart] = useState([]);
   const [estoque, setEstoque] = useState([]);
 
   const fetchData = async () => {
@@ -26,6 +26,12 @@ function Carrinho() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const controle = JSON.parse(localStorage.getItem('itemSalvo'));
+
+    setCart(controle.data)
+  }, [])
+
   const getElementById  = (id) => {
     return estoque.filter((cartItem) => cartItem.id === id)[0];
   }
@@ -37,6 +43,7 @@ function Carrinho() {
       // Lógica para remover o item do carrinho (não envolvendo a API)
       const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
       setCart(updatedCart);
+      localStorage.setItem("itemSalvo",`{"data":${JSON.stringify(updatedCart)}}`);
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +70,8 @@ function Carrinho() {
   }).filter(Boolean); // Filtra os itens vazios do carrinho
 
   setCart(updatedCart);
+  localStorage.setItem("itemSalvo",`{"data":${JSON.stringify(updatedCart)}}`);
+
 };
   
   const getTotal = () => {

@@ -259,8 +259,40 @@ aside {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.li-imagem {
-  width: 83px;
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.header-titulo {
+  color: var(--text, #151875);
+  font-size: 36px;
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 154px 0;
+}
+
+.lit-compra { 
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 53px;
+  list-style: none;
+
+  .thumb {
+    width: 270px;
+    height: 280px;
+    overflow: hidden;
+  }
+
+  li{
+  }
+  
+  img {
+    width: 100%;
+  } 
 }
 
 

@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import api from "../services/api";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+
+
 
 function ListCompra() {
   const [produtos, setProdutos] = useState([]);
@@ -19,18 +24,33 @@ function ListCompra() {
     fetchApi();
   }, []);
 
+  function handleAddCart(produto) {
+    produto = {...produto, quantidade : 1}
+    let controle = JSON.parse(localStorage.getItem('itemSalvo'));
+    controle = controle ? [...controle.data, produto] : [produto]
+    localStorage.setItem("itemSalvo",`{"data":${JSON.stringify(controle)}}`);
+  } 
+
+
+
   return (
-    <div>
-      <h1>Lista de Compras</h1>
+    <div className="container">
+      <a  href={`/carrinho`}><FontAwesomeIcon icon={faCartShopping} /></a>
+      <h1 className="header-titulo">Lista de Compras</h1>
+
       {produtos.length > 0 ? (
-        <ul>
+        <ul className="lit-compra">
           {produtos.map((produto) => (
             <li key={produto.id}>
               <h3>{produto.modelo}</h3>
               <p>Marca: {produto.marca}</p>
               <p>Preço: R$ {(produto.preco).toFixed(2)}</p>
               <p>Quantidade: {produto.quantidade}</p>
-              <img src={produto.imagem[0]} alt={produto.modelo} />
+              <div className="thumb">
+                <img src={produto.imagem[0]} alt={produto.modelo} />
+              </div>  
+            <button onClick={ () => handleAddCart(produto)}><FontAwesomeIcon icon={faCartShopping} /></button>
+            <button><FontAwesomeIcon icon={faHeart} /></button>
             </li>
           ))}
         </ul>
