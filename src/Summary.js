@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomModal from "./CustomModal";
+import api from "./services/api";
 
 const Summary = ({ total }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cupomValue, setCupomValue] = useState("");
   const [discount, setDiscount] = useState(0);
+  const [cupons, setCupons] = useState([]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -15,10 +17,10 @@ const Summary = ({ total }) => {
   };
 
   const handleApplyCupom = () => {
-    if (cupomValue === "cupom123") {
-      setDiscount(10); // Aplica um desconto de 10%
-    } else {
-      setDiscount(0); // Cupom inválido, desconto é 0
+  
+    const cupom = cupons.find( el => el.codigo == cupomValue)
+    if(cupom){
+      setDiscount(cupom.desconto)
     }
 
     handleCloseModal();
@@ -27,6 +29,20 @@ const Summary = ({ total }) => {
   const handleChangeCupomValue = (event) => {
     setCupomValue(event.target.value);
   };
+
+  useEffect(() => {
+    async function fetchApi() {
+      try {
+        
+        const response = await api.get("/cupom");
+        setCupons(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchApi();
+  }, []);
 
   return (
     <>

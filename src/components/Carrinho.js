@@ -30,7 +30,7 @@ function Carrinho() {
     const controle = JSON.parse(localStorage.getItem('itemSalvo'));
 
     setCart(controle.data)
-  }, [])
+  }, []);
 
   const getElementById  = (id) => {
     return estoque.filter((cartItem) => cartItem.id === id)[0];

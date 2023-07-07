@@ -49,5 +49,21 @@
       "imagem": ["https://cea.vtexassets.com/arquivos/ids/50997526/B…melha-9573350-Vermelho_1.jpg?v=637713898622270000"],
       "quantidade": 9
     }
+  ],
+  "cupom": [
+    {
+      "codigo": "cupom123",
+      "desconto": 10
+    },
+
+    {
+      "codigo": "cupom456",
+      "desconto": 15
+    },
+
+    {
+      "codigo": "cupom789",
+      "desconto": 20
+    }
   ]
 }

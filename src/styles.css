@@ -248,4 +248,31 @@ aside > button:hover {
 }
 .lit-compra img {
   width: 100%;
+}
+
+.vazio {
+  text-align: center;
+}
+.vazio a {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #fff;
+  background: #ff1788;
+  padding: 14px 36px;
+  border-radius: 3px;
+}
+.vazio .header-titulo {
+  margin: 28px 0;
+}
+
+.header {
+  text-align: right;
+  padding: 20px;
+  background: #7e33e0;
+}
+.header a {
+  color: #fff;
+  margin-left: 25px;
 }/*# sourceMappingURL=styles.css.map */
