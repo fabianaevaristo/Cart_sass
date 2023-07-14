@@ -7,6 +7,9 @@ import PageHeader from "../layout/PageHeader";
 import PageTitle from "../layout/PageTitle";
 
 import api from '../services/api';
+import Hero from "../layout/Hero";
+import Header from "./Header";
+
 
 
 function Carrinho() {
@@ -89,9 +92,9 @@ function Carrinho() {
 
   return (
     <>
-      <PageHeader />
+      <Header />
+      <Hero texto="Carrinho"/>
       <main>
-        <PageTitle data={'Seu carrinho'} />
         <div className="content">
           <section>
             
@@ -119,12 +122,15 @@ function Carrinho() {
                 {cart.length === 0 && (
                   <tr>
                     <td colSpan='5' style={{ textAlign: 'center' }}>
-                      <b>carrinho de compra vazio.</b>
+                      <b>Carrinho de compra vazio.</b>
                     </td>
                   </tr>
                 )}
               </tbody>
             </table>
+            <div>
+              <a  className="button" href="/">Continuar comprado</a>
+            </div>
           </section>
           <aside>
             <Summary cart={cart} total={cartTotal}/>

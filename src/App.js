@@ -3,6 +3,7 @@ import {Route, Routes, BrowserRouter} from "react-router-dom";
 import Carrinho from "./components/Carrinho";
 import ListCompra from "./components/ListCompra";
 import Favorito from "./components/Favorito";
+import Checkout from "./components/Checkout";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
           <Route path="/carrinho" element={<Carrinho />}/>
           <Route path="/" element={<ListCompra />}/>
           <Route path="/favorito" element={<Favorito/>} />
-          
+          <Route path="/checkout" element={<Checkout/>} />          
       </Routes>
     </BrowserRouter>
   )

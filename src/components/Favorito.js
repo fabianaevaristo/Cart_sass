@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
+import Hero from "../layout/Hero";
 
 
 function Favorito(){
@@ -27,29 +28,26 @@ function Favorito(){
 
     <>
       <Header/>
+      <Hero texto="Favorito" />
 
       <div className="container">
-      
-          <h1 className="header-titulo">Favoritos</h1>
-
-
         {favorito.length > 0 ? (
-
-
-        <ul>
-        {favorito.map((produto) => (
-          <li key={produto.id}>
-          <h3>{produto.modelo}</h3>
-          <p>Marca: {produto.marca}</p>
-          <p>Preço: R$ {(produto.preco).toFixed(2)}</p>
-          <p>Quantidade: {produto.quantidade}</p>
-          <div className="thumb">
-            <img src={produto.imagem[0]} alt={produto.modelo} />
-          </div>  
-      
-        <button  onClick={ () => handleRemoverFavorite(produto)}><FontAwesomeIcon icon={faHeart} /></button>
-        </li>
-        ))}
+        <ul className="lista-favorito">
+          {favorito.map((produto) => (
+            <li key={produto.id}>
+              <div className="thumb">
+                <img src={produto.imagem[0]} alt={produto.modelo} />
+              </div>
+              <div>
+                <h3>{produto.modelo}</h3>
+                <p>Marca: {produto.marca}</p>
+                <p>Preço: R$ {(produto.preco).toFixed(2)}</p>
+                <p>Quantidade: {produto.quantidade}</p>  
+            
+                <button className="button-icone" onClick={ () => handleRemoverFavorite(produto)}><FontAwesomeIcon icon={faHeart} /></button>
+              </div>
+            </li>
+          ))}
         </ul>
         ) : ( 
             <div className="vazio">

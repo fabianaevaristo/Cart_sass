@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import CustomModal from "./CustomModal";
 import api from "./services/api";
+import { useNavigate } from "react-router-dom";
 
 const Summary = ({ total }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cupomValue, setCupomValue] = useState("");
   const [discount, setDiscount] = useState(0);
   const [cupons, setCupons] = useState([]);
+  const navigate = useNavigate();
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -44,6 +46,11 @@ const Summary = ({ total }) => {
     fetchApi();
   }, []);
 
+  function finalizarCompra(){
+    localStorage.setItem("itemSalvo",`{"data":[]}`);
+    navigate("/checkout");
+  }
+
   return (
     <>
       <div className="box">
@@ -69,7 +76,7 @@ const Summary = ({ total }) => {
           <span>R$ {total - (total * discount) / 100}</span>
         </footer>
       </div>
-      <button>finalizar compra</button>
+      <button className="button" onClick={finalizarCompra}>Finalizar compra</button>
 
       {isModalOpen && (
         <CustomModal handleCloseModal={handleCloseModal}>
