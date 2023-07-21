@@ -277,6 +277,17 @@ aside .box footer {
 .header a {
   color: #fff;
   margin-left: 25px;
+  text-decoration: none;
+}
+.header .quantidade {
+  margin: 0 5px;
+  padding: 5px 7px;
+  background: #fff;
+  color: #7e33e0;
+  display: inline-block;
+  line-height: 1;
+  font-size: 11px;
+  border-radius: 50%;
 }
 
 .hero {
@@ -304,6 +315,7 @@ aside .box footer {
   font-size: 18px;
   padding: 7px 7px 4px;
   border-radius: 20px;
+  cursor: pointer;
   color: #535399;
 }
 .button-icone:hover {

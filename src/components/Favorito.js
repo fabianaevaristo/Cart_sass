@@ -27,7 +27,7 @@ function Favorito(){
  return(
 
     <>
-      <Header/>
+
       <Hero texto="Favorito" />
 
       <div className="container">
@@ -42,7 +42,7 @@ function Favorito(){
                 <h3>{produto.modelo}</h3>
                 <p>Marca: {produto.marca}</p>
                 <p>Preço: R$ {(produto.preco).toFixed(2)}</p>
-                <p>Quantidade: {produto.quantidade}</p>  
+                <p>Quantidade: {produto.quantidade}</p>
             
                 <button className="button-icone" onClick={ () => handleRemoverFavorite(produto)}><FontAwesomeIcon icon={faHeart} /></button>
               </div>
@@ -50,10 +50,10 @@ function Favorito(){
           ))}
         </ul>
         ) : ( 
-            <div className="vazio">
-              <p className="header-titulo"> Lista vazia </p>
-              <a href="/"> Continuar comprando </a>
-            </div>)}
+          <div className="vazio">
+            <p className="header-titulo"> Lista vazia </p>
+            <a href="/"> Continuar comprando </a>
+          </div>)}
       </div>
     </> 
   )

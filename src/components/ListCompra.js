@@ -3,13 +3,9 @@ import api from "../services/api";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import Header from "./Header";
 import Hero from "../layout/Hero";
 
-
-
-
-function ListCompra() {
+function ListCompra({updateHeader}) {
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
@@ -35,6 +31,7 @@ function ListCompra() {
     produto = {...produto, quantidade : 1}
     controle = controle ? [...controle.data, produto] : [produto]
     localStorage.setItem("itemSalvo",`{"data":${JSON.stringify(controle)}}`);
+    updateHeader();
   } 
 
   function handleAddFavorite(produto){
@@ -53,7 +50,6 @@ function ListCompra() {
 
   return (
     <>
-      <Header/>
       <Hero texto="Lista de compras"/>
       <div className="container">
         {produtos.length > 0 ? (

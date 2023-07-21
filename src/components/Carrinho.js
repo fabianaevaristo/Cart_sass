@@ -3,16 +3,12 @@ import "../styles.css";
 
 import Summary from "../Summary";
 import TableRow from "../TableRow";
-import PageHeader from "../layout/PageHeader";
-import PageTitle from "../layout/PageTitle";
 
 import api from '../services/api';
 import Hero from "../layout/Hero";
-import Header from "./Header";
 
 
-
-function Carrinho() {
+function Carrinho({updateHeader}) {
   const [cart, setCart] = useState([]);
   const [estoque, setEstoque] = useState([]);
 
@@ -42,11 +38,11 @@ function Carrinho() {
   const handleRemoveItem = async (item) => {
     try {
       console.log('disparou handleRemoveItem');
-      console.log({ item });
       // Lógica para remover o item do carrinho (não envolvendo a API)
       const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
       setCart(updatedCart);
       localStorage.setItem("itemSalvo",`{"data":${JSON.stringify(updatedCart)}}`);
+      updateHeader();
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +70,7 @@ function Carrinho() {
 
   setCart(updatedCart);
   localStorage.setItem("itemSalvo",`{"data":${JSON.stringify(updatedCart)}}`);
-
+  updateHeader();
 };
   
   const getTotal = () => {
@@ -92,7 +88,6 @@ function Carrinho() {
 
   return (
     <>
-      <Header />
       <Hero texto="Carrinho"/>
       <main>
         <div className="content">
