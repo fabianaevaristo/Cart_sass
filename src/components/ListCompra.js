@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "../services/api";
+import { fetchData } from "../services/api";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -9,24 +9,17 @@ function ListCompra({updateHeader}) {
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
-    async function fetchApi() {
-      try {
-        
-        const response = await api.get("/estoque");
-        setProdutos(response.data);
-      } catch (error) {
-        console.log(error);
+    fetchData().then((data) => {
+      if(data){
+        setProdutos(data)
       }
-    }
-
-    fetchApi();
+    })
   }, []);
 
   function handleAddCart(produto) {
-    let controle = JSON.parse(localStorage.getItem('itemSalvo')) || [];
-    if(controle.data.some(e => e.id == produto.id)){
+    let controle = JSON.parse(localStorage.getItem('itemSalvo')) || {data: []};
+    if(controle.data.some(e => e.id === produto.id)){
       return;
-      
     }
     produto = {...produto, quantidade : 1}
     controle = controle ? [...controle.data, produto] : [produto]
@@ -36,7 +29,7 @@ function ListCompra({updateHeader}) {
 
   function handleAddFavorite(produto){
     let controle = JSON.parse(localStorage.getItem('itemFavorito'))|| [];
-    if(controle.data.some(e => e.id == produto.id)){
+    if(controle.data.some(e => e.id === produto.id)){
       return;
 
     }

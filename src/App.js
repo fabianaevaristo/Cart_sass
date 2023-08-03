@@ -6,7 +6,6 @@ import Favorito from "./components/Favorito";
 import Checkout from "./components/Checkout";
 import Header from "./components/Header";
 
-
 function App() {
 
   const [quantidade, setQuantidade] = useState(0);
@@ -18,8 +17,11 @@ function App() {
 
   const handleUpdateHeader = () => {
     const controle = JSON.parse(localStorage.getItem('itemSalvo'));
+    if(controle) {
+      return setQuantidade(controle.data.length)
+    }
 
-    setQuantidade(controle.data.length)
+    setQuantidade(0);
   }
   
   return (

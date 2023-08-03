@@ -4,25 +4,19 @@ import "../styles.css";
 import Summary from "../Summary";
 import TableRow from "../TableRow";
 
-import api from '../services/api';
+import { fetchData } from '../services/api';
 import Hero from "../layout/Hero";
-
 
 function Carrinho({updateHeader}) {
   const [cart, setCart] = useState([]);
   const [estoque, setEstoque] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const response = await api.get("/estoque");
-      setEstoque(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
+    fetchData().then((data) => {
+      if(data){
+        setEstoque(data)
+      }
+    })
   }, []);
 
   useEffect(() => {

@@ -330,8 +330,6 @@ aside {
     line-height: 1;
     font-size: 11px;
     border-radius: 50%;
-    
-
   }
 
 }
@@ -343,11 +341,12 @@ aside {
 }
 
 .lista-favorito {
-  .thumb{
+  .thumb {
     height: 215px;
     width: 310px;
     overflow: hidden;
-    img{
+  
+    img {
       width: 100%;
     }
   }
