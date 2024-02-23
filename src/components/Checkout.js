@@ -2,7 +2,7 @@ import React from "react";
 
 function Checkout(){
   return (
-    <>compra comcluida</>
+    <>compra concluida</>
   );
 }
 

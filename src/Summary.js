@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CustomModal from "./CustomModal";
-import { api } from "./services/api";
+import { fetchCupom } from "./services/api"
 import { useNavigate } from "react-router-dom";
 
 const Summary = ({ total }) => {
@@ -33,17 +33,12 @@ const Summary = ({ total }) => {
   };
 
   useEffect(() => {
-    async function fetchApi() {
-      try {
+    fetchCupom().then((data) => {
+      if(data){
+        setCupons(data)
         
-        const response = await api.get("/cupom");
-        setCupons(response.data);
-      } catch (error) {
-        console.log(error);
       }
-    }
-
-    fetchApi();
+    })
   }, []);
 
   function finalizarCompra(){

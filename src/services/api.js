@@ -30,3 +30,19 @@ export const fetchData = async () => {
 
   return result;
 };
+
+export const fetchCupom = async () => {
+  const result = [] 
+  try {
+    await api.collection("cupom").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        result.push(doc.data());
+      });
+    });
+    
+  } catch (error) {
+    console.log(error);
+  }
+
+  return result;
+};
