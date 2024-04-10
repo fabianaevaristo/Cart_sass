@@ -1,13 +1,13 @@
 import React from "react";
+import "./styles.css";
 
-const CustomModal = ({ isOpen, onRequestClose, contentLabel, children }) => {
+const CustomModal = ({ handleCloseModal, children }) => {
   return (
-    <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className="modal-content">
-        <button className="modal-close" onClick={onRequestClose}>
+    <div className= "modal">
+      <div className= "modal-content">
+        <button className="modal-close" onClick={handleCloseModal}>
           X
         </button>
-        <h2>{contentLabel}</h2>
         {children}
       </div>
     </div>

@@ -52,7 +52,7 @@ function Favorito(){
         ) : ( 
           <div className="vazio">
             <p className="header-titulo"> Lista vazia </p>
-            <a href="/"> Continuar comprando </a>
+            <a  className="button continue-shopping" href="/">Continuar comprado</a>
           </div>)}
       </div>
     </> 

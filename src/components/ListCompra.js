@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Hero from "../layout/Hero";
+import "../styles.css";
+
 
 function ListCompra({updateHeader}) {
   const [produtos, setProdutos] = useState([]);
@@ -28,10 +30,10 @@ function ListCompra({updateHeader}) {
   } 
 
   function handleAddFavorite(produto){
-    let controle = JSON.parse(localStorage.getItem('itemFavorito'))|| [];
+    let controle = JSON.parse(localStorage.getItem('itemFavorito')) || { data:[] };
+
     if(controle.data.some(e => e.id === produto.id)){
       return;
-
     }
     produto = {...produto, quantidade : 1}
     
@@ -50,7 +52,7 @@ function ListCompra({updateHeader}) {
             {produtos.map((produto) => (
               <li key={produto.id}>
                 <div className="thumb">
-                  <img src={produto.imagem[0]} alt={produto.modelo} />
+                  <img src={produto.imagem[0]} alt={produto.modelo} className="imagem-produto" />
                 </div> 
                 <h3>{produto.modelo}</h3>
                 <p>Marca: {produto.marca}</p>

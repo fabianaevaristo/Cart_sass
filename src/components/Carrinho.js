@@ -122,7 +122,7 @@ function Carrinho({updateHeader}) {
             </div>
           </section>
           <aside>
-            <Summary cart={cart} total={cartTotal}/>
+            <Summary cart={cart} total={cartTotal} updateHeader={updateHeader}/>
           </aside>
         </div>
       </main>

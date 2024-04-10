@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import CustomModal from "./CustomModal";
 import { fetchCupom } from "./services/api"
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
-const Summary = ({ total }) => {
+const Summary = ({ total, updateHeader }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cupomValue, setCupomValue] = useState("");
   const [discount, setDiscount] = useState(0);
@@ -44,7 +45,10 @@ const Summary = ({ total }) => {
   function finalizarCompra(){
     localStorage.setItem("itemSalvo",`{"data":[]}`);
     navigate("/checkout");
+    updateHeader();
   }
+
+
 
   return (
     <>
@@ -76,12 +80,12 @@ const Summary = ({ total }) => {
       {isModalOpen && (
         <CustomModal handleCloseModal={handleCloseModal}>
           <h2>Adicionar cupom de desconto</h2>
-          <input
+          <input className="input-cupom"
             type="text"
             value={cupomValue}
             onChange={handleChangeCupomValue}
           />
-          <button onClick={handleApplyCupom}>Aplicar cupom</button>
+          <button className="button continue-shopping"  onClick={handleApplyCupom}>Aplicar cupom</button>
         </CustomModal>
       )}
     </>
